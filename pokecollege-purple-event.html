@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポケカレッジ秋葉原対戦会 - 7月28日開催！</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', 'Inter', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background: #1a0826;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(168, 85, 247, 0.1) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(124, 58, 237, 0.1) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        @keyframes slowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8A4FFF 0%, #6A5ACD 50%, #483D8B 100%);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            margin: 40px 20px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(138, 79, 255, 0.3);
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: white;
+            position: relative;
+            z-index: 2;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(168, 85, 247, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .event-date {
+            background: linear-gradient(135deg, #C084FC, #A855F7);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 16px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 25px rgba(192, 132, 252, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .event-date:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(192, 132, 252, 0.5);
+        }
+        
+        .location {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #7C3AED, #5B21B6);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.4);
+        }
+        
+        .section {
+            padding: 100px 0;
+            position: relative;
+            background: rgba(75, 0, 130, 0.95);
+            margin: 0;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(168, 85, 247, 0.2);
+        }
+        
+        .section:nth-child(even) {
+            background: rgba(91, 33, 182, 0.95);
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #A855F7, #8B5CF6, #C084FC, transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #fff;
+            font-weight: 800;
+            background: linear-gradient(135deg, #A855F7, #8B5CF6, #C084FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #A855F7, #8B5CF6, #C084FC);
+            border-radius: 2px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(40, 40, 40, 0.9));
+            padding: 50px 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.15), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(168, 85, 247, 0.3);
+            border-color: rgba(168, 85, 247, 0.6);
+        }
+        
+        .feature-card:hover::before {
+            left: 100%;
+        }
+        
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .price-section {
+            background: linear-gradient(135deg, #A855F7, #8B5CF6, #C084FC);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-section::before {
+            content: '¥';
+            position: absolute;
+            font-size: 20rem;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: 900;
+        }
+        
+        .price {
+            font-size: 6rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .price-detail {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .pokemon-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .pokemon-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .pokemon-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .pokemon-caption {
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #7C3AED;
+        }
+        
+        .coach-section {
+            text-align: center;
+        }
+        
+        .coach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .coach-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .coach-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .main-coach-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .main-coach-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(168, 85, 247, 0.3);
+            border-color: rgba(168, 85, 247, 0.6);
+        }
+        
+        .coach-photo {
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3);
+            border: 2px solid rgba(168, 85, 247, 0.4);
+        }
+        
+        .coach-photo img {
+            transition: transform 0.3s ease;
+        }
+        
+        .main-coach-card:hover .coach-photo img {
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: rgba(124, 58, 237, 0.9);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin: 20px;
+            border-radius: 15px;
+        }
+        
+        .section p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .event-date {
+                font-size: 1.3rem;
+                padding: 10px 20px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .price {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="hero-title">ポケカレッジ対戦会</h1>
+            <p class="hero-subtitle">最高の練習環境でポケモンカードを楽しもう！</p>
+            <div class="event-date">7月28日(日) 開催</div>
+            <p class="location">📍 秋葉原</p>
+            <a href="#details" class="cta-button">今すぐ参加申込み</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">なぜポケカレッジなのか？</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">優秀なコーチ陣</h3>
+                    <p>全国大会出場経験者や上位入賞者が多数在籍。あなたの実力アップをサポートします。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">最適な練習環境</h3>
+                    <p>静かで集中できる環境と、充実した設備でベストなバトルを楽しめます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">仲間との出会い</h3>
+                    <p>同じ趣味を持つ仲間たちと楽しく対戦し、新しい友達を作りましょう。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="price-section">
+        <div class="container">
+            <h2 style="font-size: 3rem; text-align: center; margin-bottom: 60px; color: white; font-weight: 800; position: relative;">参加費用</h2>
+            <div class="price">¥500</div>
+            <p class="price-detail">現金払いのみ</p>
+            <p style="color: white;">リーズナブルな価格で本格的な対戦会に参加できます！</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">ポケモンカードの魅力</h2>
+            <div class="pokemon-images">
+                <div class="pokemon-card">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="ピカチュウ" class="pokemon-image">
+                    <div class="pokemon-caption">みんなのアイドル ピカチュウ</div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=200&fit=crop" alt="ポケモンカード対戦" class="pokemon-image">
+                    <div class="pokemon-caption">白熱の対戦バトル</div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=200&fit=crop" alt="カードゲーム" class="pokemon-image">
+                    <div class="pokemon-caption">戦略的なカードプレイ</div>
+                </div>
+                <div class="pokemon-card">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop" alt="仲間との交流" class="pokemon-image">
+                    <div class="pokemon-caption">仲間との楽しい時間</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section coach-section">
+        <div class="container">
+            <h2 class="section-title">優秀なコーチ陣</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; color: rgba(255, 255, 255, 0.9);">経験豊富なコーチたちがあなたの上達をサポート</p>
+            
+            <!-- メインコーチ紹介 -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 60px;">
+                <div class="main-coach-card">
+                    <div class="coach-photo">
+                        <img src="マサムネ１.jpg" alt="マサムネコーチ" style="width: 100%; height: 320px; object-fit: cover; object-position: center 25%; border-radius: 15px; transform: scale(1.05); filter: brightness(1.1) contrast(1.1);" onerror="this.src='file:///C:/Users/windows10/Downloads/マサムネ１.jpg'">
+                    </div>
+                    <h3 style="color: #fff; margin: 20px 0 10px;">マサムネコーチ</h3>
+                    <p style="color: #A855F7; font-weight: bold; margin-bottom: 15px;">🌸 戦略・心理戦専門</p>
+                    <p style="color: rgba(255, 255, 255, 0.8);">全国大会3回優勝の実績を持つ。心理戦と読み合いを得意とし、相手の手の内を見抜く技術に長けている。</p>
+                </div>
+                
+                <div class="main-coach-card">
+                    <div class="coach-photo">
+                        <img src="マサムネ２.jpg" alt="くろくまコーチ" style="width: 100%; height: 320px; object-fit: cover; object-position: center 30%; border-radius: 15px; transform: scale(1.05); filter: brightness(1.1) contrast(1.1);" onerror="this.src='file:///C:/Users/windows10/Downloads/マサムネ２.jpg'">
+                    </div>
+                    <h3 style="color: #fff; margin: 20px 0 10px;">くろくまコーチ</h3>
+                    <p style="color: #A855F7; font-weight: bold; margin-bottom: 15px;">🥃 実践バトル専門</p>
+                    <p style="color: rgba(255, 255, 255, 0.8);">冷静な判断力と豊富な実戦経験で、どんな状況でも最適解を導き出す。リラックスした雰囲気作りも得意。</p>
+                </div>
+            </div>
+            
+            <!-- サブコーチ陣 -->
+            <div class="coach-grid">
+                <div class="coach-card">
+                    <div class="coach-avatar">🎯</div>
+                    <h4>戦略コーチ</h4>
+                    <p>デッキ構築と戦略立案のプロ</p>
+                </div>
+                <div class="coach-card">
+                    <div class="coach-avatar">⚡</div>
+                    <h4>バトルコーチ</h4>
+                    <p>実戦での判断力を鍛える専門家</p>
+                </div>
+                <div class="coach-card">
+                    <div class="coach-avatar">📚</div>
+                    <h4>ルールコーチ</h4>
+                    <p>ルールと最新情報に精通</p>
+                </div>
+                <div class="coach-card">
+                    <div class="coach-avatar">🎓</div>
+                    <h4>メンタルコーチ</h4>
+                    <p>大会での心構えをサポート</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="details" style="background: rgba(139, 92, 246, 0.2);">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">イベント詳細</h2>
+            <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto;">
+                <h3 style="color: #7C3AED; margin-bottom: 30px; font-size: 1.8rem;">開催情報</h3>
+                <div style="text-align: left; font-size: 1.1rem; line-height: 2;">
+                    <p><strong>📅 日時:</strong> 7月28日(日)</p>
+                    <p><strong>📍 場所:</strong> 秋葉原</p>
+                    <p><strong>💰 参加費:</strong> 500円（現金払い）</p>
+                    <p><strong>🎯 対象:</strong> ポケモンカード愛好者（初心者歓迎）</p>
+                    <p><strong>🏆 内容:</strong> 対戦会・練習会・コーチング</p>
+                </div>
+                <div style="margin-top: 40px;">
+                    <a href="#" class="cta-button" style="font-size: 1.3rem;">参加申込みはこちら</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ポケカレッジ. All rights reserved.</p>
+            <p>最高の練習環境で、一緒にポケモンカードを楽しみましょう！</p>
+        </div>
+    </footer>
+</body>
+</html>
